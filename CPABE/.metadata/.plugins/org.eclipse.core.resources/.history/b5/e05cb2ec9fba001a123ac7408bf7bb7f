@@ -1,0 +1,115 @@
+import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Field;
+import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.jpbc.Point;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1Pairing;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
+
+import org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent;
+
+public class TestAll {
+	public static void main(String[] args) {
+		int OutsourceDeviceNumber = 5;
+		long PrecomputaionTime,OutsourceTime,VerifyTime,EndTime;
+		long PrecomputationTotal = 0;
+		long OutsourceTotal = 0;
+		long VerifyTotal = 0;
+		long OriginalTotal = 0;
+		int rounds = 1;
+		int ParticipantNumber = 5;
+		int UBase = 1;
+		
+		for(int i = 0 ; i < rounds ; i++) {
+			System.out.print("Round ");
+			System.out.print(i);
+			System.out.println(":");
+			
+			IOT IOTDevice = new IOT();
+			PubParameter PubPara = IOTDevice.SendPubParameter();
+			
+			ArrayList<OutsourceDevice> OutDevice = new ArrayList<OutsourceDevice>();
+			ArrayList<PairingPoint> PP = new ArrayList<PairingPoint>();
+			ArrayList<Participant> Participants = new ArrayList<Participant>();
+			ArrayList<Element> eAiBis = new ArrayList<Element>();
+			
+			//IOT integrate a and b and store these ab for each participant
+			System.out.println("Step1 : Precomputation");
+			PrecomputaionTime = System.currentTimeMillis();
+			for(int j = 0 ; j < ParticipantNumber ; j++) {
+	        	Participant TP = new Participant(PubPara);
+	        	Participants.add(TP);
+	        	IOTDevice.CalculateAB(TP.ea, TP.eb);
+	        	TP.Print();
+	        }
+			IOTDevice.PreComputation(UBase);
+			
+			//Outsource
+			System.out.println("Step2 : Outsource");
+			OutsourceTime = System.currentTimeMillis();
+			for(int j = 0 ; j < OutsourceDeviceNumber ; j++) {
+				OutsourceDevice out = new OutsourceDevice();
+				out.GetPubParameter((IOTDevice.SendPubParameter()));
+				out.GetPairingPoint(IOTDevice.SendPairingPoint(OutsourceDeviceNumber));
+				OutDevice.add(out);
+			}
+			
+			// OutsourceDevice calculate the result
+			for(int j = 0 ; j < OutsourceDeviceNumber ; j++) {
+				IOTDevice.GetPairingResult(OutDevice.get(j).CalculatePairing());
+			}
+			
+			//Verify the Result
+			System.out.println("Step3 : Verify");
+			VerifyTime = System.currentTimeMillis();
+			IOTDevice.UpdateTable();
+			IOTDevice.AuthenticationParameterCheck();
+			
+			//IOTDevice Merge all the result and calculate e(A,B) and separate it into n parts.
+			System.out.println("Step4 : Compare that results");
+			IOTDevice.MergeResult();
+			EndTime = System.currentTimeMillis();
+			IOTDevice.PrintAiBi();
+			
+			
+			PrecomputaionTime = (OutsourceTime-PrecomputaionTime);
+			OutsourceTime = (VerifyTime - OutsourceTime);
+			VerifyTime = (EndTime - VerifyTime);
+			
+			PrecomputationTotal = PrecomputationTotal + PrecomputaionTime;
+			OutsourceTotal = OutsourceTotal + OutsourceTime;
+			VerifyTotal = VerifyTotal + VerifyTime;
+		}
+		
+		
+		System.out.println("");
+		System.out.print("Total ");
+		System.out.print(rounds);
+		System.out.println(" rounds ");
+		
+		System.out.print("We batch ");
+		System.out.print(ParticipantNumber);
+		System.out.println(" in one round.");
+		
+		System.out.print("Precomputation phase cost about ");
+		System.out.print(PrecomputationTotal);
+		System.out.println(" ms");
+		
+		System.out.print("Outsource computation phase cost about ");
+		System.out.print(OutsourceTotal);
+		System.out.println(" ms");
+		
+		System.out.print("Verify phase cost about ");
+		System.out.print(VerifyTotal);
+		System.out.println(" ms");
+		
+	}
+}

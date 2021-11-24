@@ -1,0 +1,10 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Number"><rhs name\="java.math.BigInteger"/></lhs><lhs name\="java.math.BigInteger"><rhs name\="java.math.BigInteger"/></lhs><lhs name\="PubParameter"><rhs name\="PubParameter"/></lhs><lhs name\="ReturnParameter"><rhs name\="ReturnParameter"/></lhs><lhs name\="java.util.Dictionary"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="PairingPoint"><rhs name\="PairingPoint"/></lhs><lhs name\="IOT"><rhs name\="IOT"/></lhs><lhs name\="OutsourceDevice"><rhs name\="OutsourceDevice"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.RandomAccess"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractCollection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.ArrayList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Map"><rhs name\="java.util.Hashtable"/><rhs name\="java.util.TreeMap"/></lhs><lhs name\="Participant"><rhs name\="Participant"/></lhs><lhs name\="cn.edu.pku.ss.crypto.abe.PubParameter"><rhs name\="cn.edu.pku.ss.crypto.abe.PubParameter"/></lhs></history>
+content_assist_number_of_computers=17
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=17
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

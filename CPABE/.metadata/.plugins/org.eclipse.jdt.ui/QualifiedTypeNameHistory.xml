@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing"/>
+    <fullyQualifiedTypeName name="java.util.Dictionary"/>
+    <fullyQualifiedTypeName name="it.unisa.dia.gas.jpbc.Point"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent"/>
+    <fullyQualifiedTypeName name="OutsourceDevice"/>
+    <fullyQualifiedTypeName name="java.util.Hashtable"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.TreeMap"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="ReturnParameter"/>
+    <fullyQualifiedTypeName name="PairingPoint"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="Participant"/>
+    <fullyQualifiedTypeName name="it.unisa.dia.gas.jpbc.Element"/>
+    <fullyQualifiedTypeName name="PubParameter"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.math.BigInteger"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.PublicKey"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.GenerateParameter"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.apiV2.Client"/>
+    <fullyQualifiedTypeName name="IOT"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.CPABEImpl"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.ReturnParameter"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.PubParameter"/>
+    <fullyQualifiedTypeName name="it.unisa.dia.gas.jpbc.Pairing"/>
+    <fullyQualifiedTypeName name="cn.edu.pku.ss.crypto.abe.PairingPoint"/>
+</qualifiedTypeNameHistroy>

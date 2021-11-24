@@ -1,0 +1,14 @@
+package cn.edu.pku.ss.crypto.abe;
+
+import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Pairing;
+
+public class PairingPoint {
+	public Element LP;
+	public Element RP;
+	private static Pairing pairing = PairingManager.defaultPairing;
+	public PairingPoint(){
+		this.LP = pairing.getG1().newElement();
+		this.RP = pairing.getG2().newElement();
+	}
+}

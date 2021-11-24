@@ -1,0 +1,29 @@
+import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Field;
+import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.jpbc.Point;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1Pairing;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+
+public class Test {
+	public static void main(String[] args) {
+		IOT IoT = new IOT();
+		System.out.println(IoT.GetA());
+		Element A = IoT.pairing.getG1().newRandomElement();
+		Element B = IoT.pairing.getG2().newRandomElement();
+		System.out.println(IoT.Outsourcing(2, 5, A, B));
+		System.out.println(IoT.GetA());
+		System.out.println(IoT.Outsourcing(2, 5, A, B));
+		System.out.println(IoT.GetA());
+		A = IoT.pairing.getG1().newZeroElement();
+		B = IoT.pairing.getG2().newZeroElement();
+		//System.out.println(IoT.Outsourcing(2, 5, A, B));
+    }
+}

@@ -1,0 +1,11 @@
+package cn.edu.pku.ss.crypto.abe;
+
+import it.unisa.dia.gas.jpbc.Element;
+
+public class PairingPoint {
+	public Element LP;
+	public Element RP;
+	public PairingPoint(){
+		
+	}
+}

@@ -1,0 +1,64 @@
+import it.unisa.dia.gas.jpbc.Element;
+import it.unisa.dia.gas.jpbc.Field;
+import it.unisa.dia.gas.jpbc.Pairing;
+import it.unisa.dia.gas.jpbc.PairingParameters;
+import it.unisa.dia.gas.jpbc.Point;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeAPairing;
+import it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1Pairing;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+
+public class Test {
+	public static void main(String[] args) {
+		IOT IoT = new IOT();
+		/*
+		long StartTime,DisTime,PairingTime,EndTime,End;
+		long TotalDisTime = 0,TotalPairingTime = 0;
+		int ParticipantNumber = 10;
+		
+		for(int i = 0 ; i < 1 ; i++) {
+			//Public Parameter
+			PubParameter PP = new PubParameter();
+			int rBits = 256;
+			int qBits = 256;
+	        TypeACurveGenerator pg = new TypeACurveGenerator(rBits,qBits);  
+	        PairingParameters curveParams = pg.generate();
+	        TypeAPairing pairing = new TypeAPairing(curveParams);
+	        BigInteger a = new BigInteger("2");
+	        BigInteger b = new BigInteger("4");
+	        BigInteger ab = new BigInteger("1");
+        
+	        Element G1 = pairing.getG1().newRandomElement().getImmutable();
+	        Element G2 = pairing.getG2().newRandomElement().getImmutable();
+	        Element GT = pairing.getGT().newRandomElement().getImmutable();
+	        Element GPG = pairing.pairing(G1.invert().pow(a), G2.invert().pow(a));
+	        BigInteger Order = G1.getField().getOrder();
+	        
+	        PP.GT = GT;
+	        PP.Order = Order;
+	        PP.P = G1;
+	        PP.pairing = pairing;
+	        PP.Q = G2;
+	        
+	        ArrayList<Participant> Participants = new ArrayList<Participant>();
+	        ArrayList<Element> eAiBis = new ArrayList<Element>();
+	        
+	        for(int j = 0 ; j < ParticipantNumber ; j++) {
+	        	Participant TP = new Participant(PP);
+	        	Participants.add(TP);
+	        }
+	        StartTime =  System.currentTimeMillis();
+	        
+	        Element Test = pairing.pairing(G1,G2).pow(b);
+	        
+	        System.out.println(GPG);
+	        System.out.println(Test);
+		}
+		*/
+		
+    }
+}
