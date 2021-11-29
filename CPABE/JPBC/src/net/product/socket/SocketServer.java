@@ -90,9 +90,11 @@ public class SocketServer extends Thread
     }
     
     //send string array to Client
-    public void sendStringArray(String[] stringArray) {
+    public void sendStringArray(String[] strArr) {
     	try {
     		ObjectOutputStream ObjectOutput = new ObjectOutputStream(this.m_socket.getOutputStream());
+    		StringArray stringArray = new StringArray();
+    		stringArray.stringArray = strArr;
     		ObjectOutput.writeObject(stringArray);
     	}catch(Exception e)
     	{
@@ -107,6 +109,32 @@ public class SocketServer extends Thread
     		ObjectInputStream ObjectInput = new ObjectInputStream(this.m_socket.getInputStream());
     		StringArray stringArray = (StringArray) ObjectInput.readObject();
     		return stringArray.stringArray;
+    	}catch(Exception e)
+    	{
+    		System.out.println("Fail to receive message");
+    		System.out.println(e.toString()); 
+    	}
+    	return null;
+    }
+    
+    //send string 
+    public void sendString(String str) {
+    	try {
+    		String [] strArr= {str};
+    		this.sendStringArray(strArr);
+    	}catch(Exception e)
+    	{
+    		System.out.println("Fail to Send message to Client");
+    		System.out.println(e.toString()); 
+    	}
+    }
+    
+    //receive  string  
+    public String receiveString() {
+    	try {
+    		String[] strArr =this.receiveStringArray();
+    		String str =strArr[0];
+    		return str;
     	}catch(Exception e)
     	{
     		System.out.println("Fail to receive message");
