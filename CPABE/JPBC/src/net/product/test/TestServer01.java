@@ -15,10 +15,14 @@ public class TestServer01 {
 		//Send Public key
 		String PKJSONString = server.getPublicKeyInString();
 		socketServer.sendString(PKJSONString);
+		System.out.println("Server send public key");
+		System.out.println(PKJSONString);
 		
 		//Get attribute  and generate secret key
 		String SKJSONString =server.generateSecretKey(socketServer.receiveStringArray());
 		socketServer.sendString(SKJSONString);
+		System.out.println("Server send secret key");
+		System.out.println(SKJSONString);
 		
 		//
 		socketServer.closeConnect();

@@ -14,13 +14,18 @@ public class TestClient01 {
 		
 		Client Client01 = new Client(new String[]{"PKU", "Student"});
 		String PKJSONString=socketClient.receiveString();
+		System.out.println("CLient receive public key");
+		System.out.println(PKJSONString);
 		
 		//Get public key from server
 		Client01.setPK(PKJSONString);
 		socketClient.sendStringArray(Client01.getAttrs());
-
+		System.out.println("CLient send attribute");
+		
 		//Get secret key from server
-		Client01.setSK(socketClient.receiveString());
+		String srcretKey=socketClient.receiveString();
+		Client01.setSK(srcretKey);
+		System.out.println("CLient receive srcretKey");
 		
 		//encryption
 		String outputFileName = "test.cpabe";
@@ -30,7 +35,9 @@ public class TestClient01 {
 		
 		//decryption
 		in = new File(outputFileName);
+		System.out.println("CLient is decrypting");
 		Client01.dec_with_outsourcing(in);
+		System.out.println("CLient decryption process is finished ");
 		
 		socketClient.closeConnect();
 	}
