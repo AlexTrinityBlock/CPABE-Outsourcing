@@ -3,6 +3,7 @@ package net.product.socket;
 import java.io.*;
 import java.net.*;
 import net.product.data.Message;
+import net.product.data.StringArray;
 
 public class SocketClient extends Thread
 {
@@ -75,5 +76,29 @@ public class SocketClient extends Thread
     	return null;
     }
     
-       
+    //send string array to Client
+    public void sendStringArray(String[] stringArray) {
+    	try {
+    		ObjectOutputStream ObjectOutput = new ObjectOutputStream(this.m_socket.getOutputStream());
+    		ObjectOutput.writeObject(stringArray);
+    	}catch(Exception e)
+    	{
+    		System.out.println("Fail to Send message to Client");
+    		System.out.println(e.toString()); 
+    	}
+    }
+   
+    //receive  string array 
+    public String[] receiveStringArray() {
+    	try {
+    		ObjectInputStream ObjectInput = new ObjectInputStream(this.m_socket.getInputStream());
+    		StringArray stringArray = (StringArray) ObjectInput.readObject();
+    		return stringArray.stringArray;
+    	}catch(Exception e)
+    	{
+    		System.out.println("Fail to receive message");
+    		System.out.println(e.toString()); 
+    	}
+    	return null;
+    }
 }
