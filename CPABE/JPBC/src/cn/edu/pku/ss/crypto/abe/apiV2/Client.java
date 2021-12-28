@@ -954,7 +954,7 @@ public class Client {
 	}	
 	public void PrintResultTable() {
 		for(String key : ResultTable.keySet()) {
-			System.out.print(key + "¡G = ");
+			System.out.print(key + "ï¿½G = ");
 			System.out.println(ResultTable.get(key).Result);
 		}
 	}
@@ -971,7 +971,7 @@ public class Client {
 	}
 	public void PrintCheckingTable() {
 		for(String key : CheckingTable.keySet()) {
-			System.out.print(key + "¡G = ");
+			System.out.print(key + "ï¿½G = ");
 			System.out.println(CheckingTable.get(key));
 		}
 	}
